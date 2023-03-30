@@ -7,7 +7,7 @@ ARG vers=1.0.0.0
 
 WORKDIR /src
 #RUN curl -L https://raw.githubusercontent.com/Microsoft/artifacts-credprovider/master/helpers/installcredprovider.sh  | sh
-#COPY Unity.GraphQL.sln .
+COPY cicd.sln .
 #ARG FEED_ACCESSTOKEN
 #ENV DOTNET_SYSTEM_NET_HTTP_USESOCKETSHTTPHANDLER=0
 #ENV NUGET_CREDENTIALPROVIDER_SESSIONTOKENCACHE_ENABLED true
@@ -23,7 +23,7 @@ COPY "cicd.csproj" "dotnet"
 #COPY "Unity.GraphQL.Gateway.UnitTests/Unity.GraphQL.Gateway.UnitTests.csproj" "Unity.GraphQL.Gateway.UnitTests"
 
 # RUN dotnet restore --configfile nuget.config --disable-parallel --locked-mode "Unity.GraphQL.sln"
-#RUN dotnet restore --configfile nuget.config --disable-parallel --locked-mode
+RUN dotnet restore --configfile nuget.config --disable-parallel --locked-mode cicd.sln
 COPY . .
 
 WORKDIR /src/dotnet
