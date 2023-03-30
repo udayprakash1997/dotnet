@@ -23,7 +23,7 @@ COPY "cicd.csproj" "dotnet"
 #COPY "Unity.GraphQL.Gateway.UnitTests/Unity.GraphQL.Gateway.UnitTests.csproj" "Unity.GraphQL.Gateway.UnitTests"
 
 # RUN dotnet restore --configfile nuget.config --disable-parallel --locked-mode "Unity.GraphQL.sln"
-RUN dotnet restore --configfile nuget.config --disable-parallel --locked-mode
+#RUN dotnet restore --configfile nuget.config --disable-parallel --locked-mode
 COPY . .
 
 WORKDIR /src/dotnet
